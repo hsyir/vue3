@@ -1,0 +1,14 @@
+<template>
+  <v-layout>
+    <v-locale-provider rtl>
+      <v-app-bar color="grey-darken-3"></v-app-bar>
+      <v-navigation-drawer
+        color="red-darken-4"
+        permanent
+      ></v-navigation-drawer>
+      <v-main >
+        <router-view class="pa-5"></router-view>
+      </v-main>
+    </v-locale-provider>
+  </v-layout>
+</template>
