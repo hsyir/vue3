@@ -1,14 +1,36 @@
 <template>
-  <v-layout>
-    <v-locale-provider rtl>
-      <v-app-bar color="grey-darken-3"></v-app-bar>
-      <v-navigation-drawer
-        color="red-darken-4"
-        permanent
-      ></v-navigation-drawer>
-      <v-main >
-        <router-view class="pa-5"></router-view>
-      </v-main>
-    </v-locale-provider>
-  </v-layout>
+  <v-app>
+    <component :is="layout"></component>
+  </v-app>
 </template>
+<script>
+
+
+import defaultLayout from './layouts/default.vue';
+import basic from './layouts/basic.vue';
+
+
+export default {
+  components:{
+    default: defaultLayout,
+    basic,
+  },
+  data: function(){
+    return {
+      layout: "default",
+    }
+  },
+  methods: {
+    /**
+     * Set the application layout.
+     *
+     * @param {String} layout
+     */
+    setLayout (layout) {
+      this.layout = layout
+    }
+  },
+  mounted() {
+  },
+}
+</script>

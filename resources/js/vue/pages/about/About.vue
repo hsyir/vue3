@@ -4,12 +4,17 @@
 <script>
 export default {
   name: "about",
+  layout: "jestu",
   components: {
+    
   },
 
   data() {
     return {
     };
+  },
+  mounted(){
+    // console.log("ibus",)
   }
 };
 </script>
