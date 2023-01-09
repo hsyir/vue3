@@ -1,6 +1,6 @@
 import {createRouter} from 'vue-router'
-import Homepage from './home/Home.vue';
-import About from './about/About.vue';
+import Homepage from '../pages/home/Home.vue';
+import About from './../pages/about/About.vue';
 const routes = [
   {
     path: '/',
@@ -8,7 +8,8 @@ const routes = [
   },
   {
     path: '/about',
-    component: About
+    component: About,
+    meta:{ layout: "basic" } 
   },
 ]
 

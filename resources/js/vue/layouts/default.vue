@@ -23,7 +23,6 @@ export default {
     };
   },
   mounted(){
-    console.log("Imnansdsa")
   }
 };
 </script>

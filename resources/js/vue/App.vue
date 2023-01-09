@@ -20,17 +20,18 @@ export default {
       layout: "default",
     }
   },
+  watch: {
+    $route: function (route) {
+      this.setLayout(route.meta.layout || "default")
+    }
+  },
   methods: {
-    /**
-     * Set the application layout.
-     *
-     * @param {String} layout
-     */
     setLayout (layout) {
       this.layout = layout
     }
   },
   mounted() {
+    // this.setLayout(this.$route.meta.layout || "default")
   },
 }
 </script>
