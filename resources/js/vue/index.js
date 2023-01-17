@@ -7,10 +7,12 @@ import store from './store'
 import router from './router'
 import vuetify from './plugins/vuetify';
 const app = createApp(App)
+import pinia from "./store"
 
 app.use(router)
     .use(store)
     .use(vuetify)
+    .use(pinia)
     .use(createMetaManager()) 
     .mount('#app');
 
