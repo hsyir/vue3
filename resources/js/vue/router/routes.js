@@ -9,8 +9,14 @@ const routes = [
   {
     path: '/about',
     component: About,
-    meta:{ layout: "basic" } 
+    meta:{ layout: "basic", requireAuth: true } 
   },
+/*   {
+    path: '/login',
+    name: 'login',
+    component: Login,
+    meta:{ layout: "basic", requireAuth: false } 
+  }, */
 ]
 
 export default function (history) {

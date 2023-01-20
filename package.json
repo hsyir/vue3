@@ -17,6 +17,7 @@
         "vue": "^3.2.37"
     },
     "dependencies": {
+        "@vue/composition-api": "^1.7.1",
         "pinia": "^2.0.28",
         "vue-meta": "^3.0.0-alpha.2",
         "vue-router": "^4.0.13",

@@ -1,6 +1,8 @@
 <template>
   <v-app>
-    <component :is="layout"></component>
+    <component :is="layout">
+      <login></login>
+    </component>
   </v-app>
 </template>
 <script>
@@ -8,12 +10,13 @@
 
 import defaultLayout from './layouts/default.vue';
 import basic from './layouts/basic.vue';
-
+import Login from './components/Login.vue'
 
 export default {
   components:{
     default: defaultLayout,
     basic,
+    Login,
   },
   data: function(){
     return {
