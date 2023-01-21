@@ -3,5 +3,8 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import 'bootstrap/scss/bootstrap';
+@font-face {
+    font-family: "yekan";
+    src: url("./../fonts/yekan.woff");
+}
+

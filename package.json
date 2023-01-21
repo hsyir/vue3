@@ -19,6 +19,7 @@
     "dependencies": {
         "@vue/composition-api": "^1.7.1",
         "pinia": "^2.0.28",
+        "vite-plugin-vuetify": "^1.0.1",
         "vue-meta": "^3.0.0-alpha.2",
         "vue-router": "^4.0.13",
         "vuetify": "^3.0.6"

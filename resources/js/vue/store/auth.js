@@ -11,7 +11,6 @@ export const useAuthStore = defineStore('auth', {
     },
     actions: {
         showLoginForm() {
-            alert("show")
             this.$state.showLoginForm = true;
         },
         hideLoginform() {
