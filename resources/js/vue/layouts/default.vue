@@ -7,8 +7,8 @@
         permanent
       ></v-navigation-drawer>
       <v-main >
-      <slot></slot>
-        <router-view></router-view>
+      <slot />
+      <router-view></router-view>
       </v-main>
     </v-locale-provider>
   </v-layout>

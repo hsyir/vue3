@@ -1,11 +1,5 @@
-<template>
-  <h1>Im home</h1>
-<v-btn to="/about">about</v-btn>
-
-<v-btn @click="showLogin">show</v-btn>
-<v-btn @click="hideLogin">hide</v-btn>
-
-
+<template src="./home.html">
+  
 </template>
 <style scoped src="./home.css"></style>
 
@@ -22,6 +16,7 @@ export default {
   data() {
     return {
       dialog: false,
+      auth: useAuthStore(),
     };
   },
   methods: {

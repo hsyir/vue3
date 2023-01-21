@@ -1,16 +1,16 @@
 <template>
   <v-app>
     <component :is="layout">
-      <login></login>
+      <login v-if="showLoginForm"></login>
     </component>
   </v-app>
 </template>
 <script>
 
-
 import defaultLayout from './layouts/default.vue';
 import basic from './layouts/basic.vue';
 import Login from './components/Login.vue'
+import {useAuthStore} from "./store/auth"
 
 export default {
   components:{
@@ -22,6 +22,12 @@ export default {
     return {
       layout: "default",
     }
+  },
+  computed:{
+    showLoginForm(){
+      const auth = useAuthStore();
+      return auth.$state.showLoginForm;
+    },
   },
   watch: {
     $route: function (route) {
