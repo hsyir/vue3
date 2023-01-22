@@ -1,19 +1,25 @@
 <template src="./login.html"></template>
 
 <script setup>
+import { reactive, computed } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import { ref, reactive, computed } from "vue";
 import { useAuthStore } from "./../store/auth";
+
+const auth = useAuthStore();
+const dialog = computed(() => {
+  return auth.$state.showLoginForm;
+});
+
 const router = useRouter();
+
 const data = reactive({
   loading: false,
   email: "hosseinyaghmaee@gmail.com",
   password: "123456",
 });
-const auth = useAuthStore(),
-  dialog = computed(() => {
-    return auth.$state.showLoginForm;
-  });
+
+const intendedUrl = auth.intendedUrl;
+auth.setIntendedUrl("");
 
 function login() {
   data.loading = true;
@@ -21,9 +27,8 @@ function login() {
     .login(data.email, data.password)
     .then(async (res) => {
       const user = await auth.fetchUser();
-      if (auth.intendedUrl !== "") {
-        router.push({ path: auth.intendedUrl });
-        auth.setIntendedUrl("");
+      if (intendedUrl !== "") {
+        router.push({ path: intendedUrl });
       }
       auth.hideLoginform();
     })
