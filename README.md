@@ -3,7 +3,7 @@
 
 ``` composer install ```
 
-``` cp .env.example ```
+``` cp .env.example .env ```
 
 ``` php artisan jwt:secret ```
 
