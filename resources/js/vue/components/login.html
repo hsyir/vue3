@@ -1,6 +1,6 @@
 <v-row justify="center">
     <v-dialog v-model="dialog" persistent>
-        <v-card :loading="data.loading">
+        <v-card :loading="data.loading" v-if="!auth.isLogedIn">
             <v-card-title>
                 <span class="text-h5">فرم ورود</span>
             </v-card-title>
@@ -17,7 +17,6 @@
                         </v-col>
                     </v-row>
                 </v-container>
-                <small>*indicates required field</small>
             </v-card-text>
             <v-card-actions>
                 <v-spacer></v-spacer>
@@ -25,7 +24,27 @@
                     ورود
                 </v-btn>
                 <v-btn color="blue-darken-1" variant="text" @click="auth.hideLoginform()">
-                    Save
+                    انصراف
+                </v-btn>
+            </v-card-actions>
+        </v-card>
+        <v-card :loading="data.loading" v-if="auth.isLogedIn">
+            <v-card-title>
+                <span class="text-h5">فرم ورود</span>
+            </v-card-title>
+            <v-card-text>
+                <v-container>
+                    <v-row>
+                        <v-col cols="12" sm="6">
+                            کاربر: {{ auth.authenticatedUser.email }}
+                        </v-col>
+                    </v-row>
+                </v-container>
+            </v-card-text>
+            <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="blue-darken-1" variant="text" @click="auth.hideLoginform()" :loading="data.loading" :disabled="data.loading">
+                    بسیار خب
                 </v-btn>
             </v-card-actions>
         </v-card>

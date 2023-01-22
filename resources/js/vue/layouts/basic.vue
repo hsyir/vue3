@@ -7,6 +7,7 @@
         permanent
       ></v-navigation-drawer>
       <v-main >
+      <slot />
         <router-view></router-view>
       </v-main>
     </v-locale-provider>

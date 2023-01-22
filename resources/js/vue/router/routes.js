@@ -1,6 +1,7 @@
 import {createRouter} from 'vue-router'
 import Homepage from '../pages/home/Home.vue';
 import About from './../pages/about/About.vue';
+import Secret from './../pages/secret/Secret.vue';
 const routes = [
   {
     path: '/',
@@ -9,6 +10,11 @@ const routes = [
   {
     path: '/about',
     component: About,
+    meta:{ layout: "basic", requireAuth: false } 
+  },
+  {
+    path: '/secret',
+    component: Secret,
     meta:{ layout: "basic", requireAuth: true } 
   },
 /*   {

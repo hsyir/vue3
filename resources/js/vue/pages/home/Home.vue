@@ -28,6 +28,9 @@ export default {
       const auth = useAuthStore();
       auth.hideLoginform();
     },
+    logout(){
+      this.auth.logout();
+    }
   },
 };
 </script>

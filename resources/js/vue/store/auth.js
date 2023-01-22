@@ -5,22 +5,27 @@ import Cookies from 'js-cookie'
 export const useAuthStore = defineStore('auth', {
     state: () => {
         return {
-            user: {},
+            user: null,
             showLoginForm: false,
-            access_token: null,
+            access_token: Cookies.get('token'),
+            intended_url: "",
         }
     },
     getters: {
-        authenticatedUser(state) {
-            return state.user;
-        }
+        authenticatedUser: state => state.user,
+        isLogedIn: state => state.user !== null,
+        intendedUrl: state => state.intended_url 
     },
     actions: {
+        setIntendedUrl(url) {
+            this.$state.intended_url = url
+        },
         showLoginForm() {
-            this.$state.showLoginForm = true;
+            console.log("showLo")
+            this.$state.showLoginForm = true
         },
         hideLoginform() {
-            this.$state.showLoginForm = false;
+            this.$state.showLoginForm = false
         },
         login(email, password) {
             return new Promise((resolve, reject) => {
@@ -31,9 +36,9 @@ export const useAuthStore = defineStore('auth', {
                             reject("NoAccessToken");
                         }
 
-                        Cookies.set('token', res.data.access_token, { expires: true ? 365 : null });
+                        Cookies.set('token', res.data.access_token, { expires: true ? 365 : null })
 
-                        resolve(true);
+                        resolve(true)
 
                     })
                     .catch(err => {
@@ -42,12 +47,20 @@ export const useAuthStore = defineStore('auth', {
             });
 
         },
+        logout() {
+            return new Promise((resolve, reject) => {
+                axios.post("/api/auth/logout").then(res => {
+                    this.$state.user = null
+                    resolve(true)
+                })
+            })
+        },
         fetchUser() {
             return new Promise((resolve, reject) => {
                 axios.post("/api/auth/me")
                     .then(res => {
-                        this.$state.user = res.data;
-                        resolve(res.data);
+                        this.$state.user = res.data
+                        resolve(res.data)
                     })
                     .catch(err => {
                         reject(false)
